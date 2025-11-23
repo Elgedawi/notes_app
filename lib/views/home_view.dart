@@ -8,9 +8,17 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20),
-        child: const Column(
+      floatingActionButton: FloatingActionButton(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadiusGeometry.circular(50),
+        ),
+        backgroundColor: Colors.cyanAccent,
+        onPressed: () {},
+        child: const Icon(Icons.add),
+      ),
+      body: const Padding(
+        padding: EdgeInsets.symmetric(horizontal: 20),
+        child: Column(
           children: [
             SizedBox(height: 30),
             CustomAppBar(),
