@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:notes_app/constants.dart';
+import 'package:notes_app/widgets/add_note_sheet.dart';
 import 'package:notes_app/widgets/custom_appbar.dart';
-import 'package:notes_app/widgets/notes_listView.dart';
+import 'package:notes_app/widgets/notes_list_view.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
@@ -13,7 +15,18 @@ class HomeView extends StatelessWidget {
           borderRadius: BorderRadiusGeometry.circular(50),
         ),
         backgroundColor: Colors.cyanAccent,
-        onPressed: () {},
+        onPressed: () {
+          showModalBottomSheet(
+            backgroundColor: kThemeCOlor,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(16),
+            ),
+            context: context,
+            builder: (context) {
+              return AddNoteSheet();
+            },
+          );
+        },
         child: const Icon(Icons.add),
       ),
       body: const Padding(
@@ -22,7 +35,6 @@ class HomeView extends StatelessWidget {
           children: [
             SizedBox(height: 30),
             CustomAppBar(),
-            SizedBox(height: 10),
             Expanded(child: NotesListview()),
           ],
         ),

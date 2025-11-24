@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:notes_app/constants.dart';
 import 'package:notes_app/views/home_view.dart';
 
 void main() {
@@ -15,7 +16,7 @@ class NotesApp extends StatelessWidget {
 
       theme: ThemeData(
         fontFamily: 'Poppins',
-        scaffoldBackgroundColor: Color(0xff303030),
+        scaffoldBackgroundColor: kThemeCOlor,
       ),
       home: const HomeView(),
     );
