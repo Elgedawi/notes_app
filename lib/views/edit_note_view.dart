@@ -15,13 +15,13 @@ class EditNoteView extends StatelessWidget {
             children: [
               CustomAppBar(title: 'Edit Note', icon: Icons.check),
               SizedBox(height: 50),
-              CustomTextfield(
+              CustomTextFormfield(
                 height: 60,
                 hint: 'Title',
                 alignment: Alignment.centerLeft,
               ),
               SizedBox(height: 20),
-              CustomTextfield(
+              CustomTextFormfield(
                 height: 150,
                 hint: 'content',
                 alignment: Alignment.centerLeft,
