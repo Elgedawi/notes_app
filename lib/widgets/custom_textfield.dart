@@ -13,7 +13,7 @@ class CustomTextFormfield extends StatelessWidget {
   final Alignment alignment;
   @override
   Widget build(BuildContext context) {
-    return TextField(
+    return TextFormField(
       maxLines: 10000,
       style: TextStyle(color: Colors.white),
       decoration: InputDecoration(
