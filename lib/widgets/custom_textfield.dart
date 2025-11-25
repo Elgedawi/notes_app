@@ -7,13 +7,23 @@ class CustomTextFormfield extends StatelessWidget {
     required this.height,
     required this.hint,
     required this.alignment,
+    this.onsaved,
   });
   final double height;
   final String hint;
   final Alignment alignment;
+  final Function(String?)? onsaved;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      onSaved: onsaved,
+      validator: (value) {
+        if (value?.isEmpty ?? true) {
+          return 'field is required';
+        } else {
+          return null;
+        }
+      },
       maxLines: 10000,
       style: TextStyle(color: Colors.white),
       decoration: InputDecoration(

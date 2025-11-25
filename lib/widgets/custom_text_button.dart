@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:notes_app/constants.dart';
 
 class CustomTextButton extends StatelessWidget {
-  const CustomTextButton({super.key});
-
+  const CustomTextButton({super.key, this.onpressed});
+  final void Function()? onpressed;
   @override
   Widget build(BuildContext context) {
     return TextButton(
-      onPressed: () {},
+      onPressed: onpressed,
       style: ButtonStyle(
         backgroundColor: WidgetStateProperty.all<Color>(kPrimarColor),
         fixedSize: WidgetStateProperty.all<Size>(Size(370, 50)),
