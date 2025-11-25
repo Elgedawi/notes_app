@@ -27,6 +27,7 @@ class CustomTextFormfield extends StatelessWidget {
       maxLines: 10000,
       style: TextStyle(color: Colors.white),
       decoration: InputDecoration(
+        contentPadding: EdgeInsets.all(8),
         hint: Align(
           alignment: alignment,
           child: Text(hint, style: TextStyle(color: kPrimarColor)),
