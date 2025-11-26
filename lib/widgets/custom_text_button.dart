@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:notes_app/constants.dart';
+import 'package:notes_app/cubits/add_note_cubit/add_note_cubit.dart';
 
 class CustomTextButton extends StatelessWidget {
   const CustomTextButton({super.key, this.onpressed});
@@ -15,13 +17,19 @@ class CustomTextButton extends StatelessWidget {
           RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.0)),
         ),
       ),
-      child: const Text(
-        'Add',
-        style: TextStyle(
-          color: Colors.black,
-          fontSize: 20,
-          fontWeight: FontWeight.bold,
-        ),
+      child: BlocBuilder<AddNoteCubit, AddNoteState>(
+        builder: (context, state) {
+          return state is AddNoteILoading
+              ? CircularProgressIndicator()
+              : const Text(
+                  'Add',
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                  ),
+                );
+        },
       ),
     );
   }
