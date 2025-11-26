@@ -8,14 +8,17 @@ class CustomTextFormfield extends StatelessWidget {
     required this.hint,
     required this.alignment,
     this.onsaved,
+    this.onchanged,
   });
   final double height;
   final String hint;
   final Alignment alignment;
   final Function(String?)? onsaved;
+  final Function(String?)? onchanged;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      onChanged: onchanged,
       onSaved: onsaved,
       validator: (value) {
         if (value?.isEmpty ?? true) {

@@ -16,6 +16,8 @@ class NotesListview extends StatelessWidget {
         return Padding(
           padding: EdgeInsets.symmetric(vertical: 25),
           child: ListView.builder(
+            reverse: true,
+            controller: BlocProvider.of<NotesCubit>(context).scrollController,
             padding: EdgeInsets.zero,
             itemCount: notes.length,
             itemBuilder: (context, index) {
