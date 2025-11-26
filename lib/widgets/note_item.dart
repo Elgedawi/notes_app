@@ -1,33 +1,34 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:notes_app/models/note_model.dart';
 import 'package:notes_app/views/edit_note_view.dart';
 
 class NoteItem extends StatelessWidget {
-  const NoteItem({super.key});
+  final NoteModel note;
 
+  const NoteItem({super.key, required this.note});
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () => Navigator.pushNamed(context, EditNoteView.id),
       child: Container(
         decoration: BoxDecoration(
-          color: Color(0xffFFCE7F),
+          color: Color(note.color),
           borderRadius: BorderRadius.circular(16),
         ),
         padding: EdgeInsets.only(top: 20, left: 10, bottom: 30),
-
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
             ListTile(
-              title: const Text(
-                'Flutter Tips',
+              title: Text(
+                note.title,
                 style: TextStyle(color: Colors.black, fontSize: 24),
               ),
-
               subtitle: Padding(
                 padding: const EdgeInsets.only(top: 20, right: 10.0),
                 child: Text(
-                  'Build your career with Ahmed Mostafa',
+                  note.subtitle,
                   style: TextStyle(
                     color: Colors.black.withAlpha(135),
                     fontSize: 18,
@@ -45,7 +46,7 @@ class NoteItem extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(top: 8, right: 15),
               child: Text(
-                'May 21.2022',
+                note.date,
                 style: TextStyle(
                   color: Colors.black.withAlpha(135),
                   fontSize: 18,
