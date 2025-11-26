@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:meta/meta.dart';
@@ -15,8 +16,9 @@ class AddNoteCubit extends Cubit<AddNoteState> {
       var notesBox = Hive.box<NoteModel>(kNotesBox);
       await notesBox.add(note);
       emit(AddNoteSuccess());
+      print('success');
     } catch (e) {
-      AddNoteFailure(errMessage: e.toString());
+      emit(AddNoteFailure(errMessage: e.toString()));
     }
   }
 }
