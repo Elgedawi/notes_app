@@ -17,6 +17,7 @@ class HomeView extends StatelessWidget {
         backgroundColor: Colors.cyanAccent,
         onPressed: () {
           showModalBottomSheet(
+            isScrollControlled: true,
             backgroundColor: kThemeCOlor,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(16),
